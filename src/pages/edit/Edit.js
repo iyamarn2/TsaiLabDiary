@@ -3,9 +3,9 @@ import { projectFirestore } from '../../firebase/config'
 import { useHistory } from 'react-router-dom'
 
 // styles
-import './Create.css'
+import './Edit.css'
 
-export default function Create() {  
+export default function Edit() {  
   const [title, setTitle] = useState('')
   const [method, setMethod] = useState('')
   const [cookingTime, setCookingTime] = useState('')
@@ -17,7 +17,7 @@ export default function Create() {
   
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const doc = { title, ingredients, method, cookingTime: cookingTime}
+    const doc = { title, ingredients, method, cookingTime: cookingTime + ' minutes' }
 
     try {
       await projectFirestore.collection('TsaiLabDiary').add(doc)
@@ -39,8 +39,8 @@ export default function Create() {
   }
 
   return (
-    <div className="create">
-      <h2 className="page-title">Add a New Diary</h2>
+    <div className="edit">
+      <h2 className="page-title">Edit a New Diary</h2>
       <form onSubmit={handleSubmit}>
 
         <label>
@@ -62,12 +62,6 @@ export default function Create() {
               value={newIngredient}
               ref={ingredientInput}
             />
-            {/* <select onChange={(e) => handleAdd(e)}> */}
-    	      	{/* <option value="1-10">1-10</option> */}
-    	      	{/* <option value="10-15">10-15</option> */}
-    	      	{/* <option value="15-20">15-20</option> */}
-    	      	{/* <option value="20+">20+</option> */}
-   		      {/* </select> */}
             <button onClick={handleAdd} className="btn">add</button>
           </div>
         </label>

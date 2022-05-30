@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     setIsPending(true)
 
-    const unsub = projectFirestore.collection('recipes').onSnapshot(snapshot => {
+    const unsub = projectFirestore.collection('TsaiLabDiary').onSnapshot(snapshot => {
       if (snapshot.empty) {
         setError('No recipes to load')
         setIsPending(false)

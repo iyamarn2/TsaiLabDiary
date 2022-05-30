@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useTheme } from '../../hooks/useTheme'
 import { useState, useEffect } from 'react'
 import { projectFirestore } from '../../firebase/config'
@@ -17,7 +17,7 @@ export default function Recipe() {
   useEffect(() => {
     setIsPending(true)
 
-    const unsub = projectFirestore.collection('recipes').doc(id).onSnapshot(doc => {
+    const unsub = projectFirestore.collection('TsaiLabDiary').doc(id).onSnapshot(doc => {
       if (doc.exists) {
         setIsPending(false)
         setRecipe(doc.data())
@@ -32,7 +32,7 @@ export default function Recipe() {
   }, [id])
 
   const handleClick = () => {
-    projectFirestore.collection('recipes').doc(id).update({
+    projectFirestore.collection('TsaiLabDiary').doc(id).update({
       title: 'Something completely different'
     })
   }
@@ -44,12 +44,13 @@ export default function Recipe() {
       {recipe && (
         <>
           <h2 className="page-title">{recipe.title}</h2>
-          <p>Takes {recipe.cookingTime} to cook.</p>
+          <p>{recipe.cookingTime}</p>
           <ul>
-            {recipe.ingredients.map(ing => <li key={ing}>ing</li>)}
+            {recipe.ingredients.map(ing => <li key={ing}>{ing}</li>)}
           </ul>
           <p className="method">{recipe.method}</p>
-          <button onClick={handleClick}>Update me</button>
+          {/* <button onClick={handleClick}>Update</button> */}
+          <Link to="/edit">Edit Diary</Link>
         </>
       )}
     </div>

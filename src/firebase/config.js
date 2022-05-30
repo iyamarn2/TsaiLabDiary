@@ -2,13 +2,13 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDCeOytuIxNGchrGq4CrZq4cpohiIX9uYg",
-  authDomain: "testing-123-c16fc.firebaseapp.com",
-  projectId: "testing-123-c16fc",
-  storageBucket: "testing-123-c16fc.appspot.com",
-  messagingSenderId: "934001709223",
-  appId: "1:934001709223:web:e36d27896426d6ebb30b82",
-  measurementId: "G-5TQT44T2V9"
+  apiKey: "AIzaSyBzetAjv2zIW-CHl5ESQzMLOQn_5x_Y-Ds",
+  authDomain: "tsailabdiary.firebaseapp.com",
+  projectId: "tsailabdiary",
+  storageBucket: "tsailabdiary.appspot.com",
+  messagingSenderId: "767381520485",
+  appId: "1:767381520485:web:ddd3c192e803d4c885868c",
+  measurementId: "G-BC344P97T1"
 }
 
 // init firebase

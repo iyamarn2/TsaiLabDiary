@@ -14,7 +14,7 @@ export default function RecipeList({ recipes }) {
   }
 
   const handleClick = (id) => {
-    projectFirestore.collection('recipes').doc(id).delete()
+    projectFirestore.collection('TsaiLabDiary').doc(id).delete()
   }
 
   return (
@@ -22,9 +22,9 @@ export default function RecipeList({ recipes }) {
       {recipes.map(recipe => (
         <div key={recipe.id} className={`card ${mode}`}>
           <h3>{recipe.title}</h3>
-          <p>{recipe.cookingTime} to make.</p>
+          <p>{recipe.cookingTime}</p>
           <div>{recipe.method.substring(0, 100)}...</div>
-          <Link to={`/recipes/${recipe.id}`}>Cook This</Link>
+          <Link to={`/recipes/${recipe.id}`}>See This</Link>
           <img 
             className="delete"
             onClick={() => handleClick(recipe.id)}
