@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "TsaiLabDiary",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
